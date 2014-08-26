@@ -1,0 +1,22 @@
+{
+  "name": "BookingCalendar",
+  "version": "0.0.0",
+  "description": "Javascript booking/availability calendar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jordan Wallwork",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.3.4",
+    "gulp-jshint": "^1.8.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.3.2",
+    "gulp-util": "^3.0.0",
+    "gulp-react": "^1.0.0",
+    "merge-stream": "^0.1.5"
+  }
+}

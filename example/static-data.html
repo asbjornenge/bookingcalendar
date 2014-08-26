@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Booking Calendar</title>
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			#calendar { font-size: 0.8em;}
+			#calendar td, #calendar th { padding: 4px 2px; text-align: center; }
+		</style>
+	</head>
+	<body>
+		
+		<div class="container">
+			<h1 class="page-header">Booking/Availability Calendar</h1>
+			<div id="calendar"></div>
+		</div>
+		
+    	<script src="http://fb.me/react-0.11.1.js"></script>
+    	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.js"></script>
+		<script src="../dist/bookingcalendar.js"></script>
+		<script>
+			var calendar = Calendar.create(document.getElementById("calendar", { date: moment() }));
+		</script>
+	</body>
+</html>
