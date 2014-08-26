@@ -4,8 +4,9 @@
 		<title>Booking Calendar</title>
 		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 		<style>
-			#calendar { font-size: 0.8em;}
+			#calendar table { font-size: 0.8em;}
 			#calendar td, #calendar th { padding: 4px 2px; text-align: center; }
+			#calendar tbody td:empty { background-color: #eee; }
 		</style>
 	</head>
 	<body>
@@ -19,7 +20,7 @@
     	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.js"></script>
 		<script src="../dist/bookingcalendar.js"></script>
 		<script>
-			var calendar = Calendar.create(document.getElementById("calendar", { date: moment() }));
+			var calendar = Calendar.create(document.getElementById("calendar"), { date: moment(), sixRows: false });
 		</script>
 	</body>
 </html>

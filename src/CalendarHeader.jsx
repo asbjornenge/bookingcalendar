@@ -4,7 +4,7 @@ var CalendarHeader = React.createClass({
 	render: function() {
 		return (
 			<div className="panel-heading">
-				{this.props.title}
+				{this.props.date.format("YYYY")}
 			</div>
 		);
 	}

@@ -1,9 +1,16 @@
 /** @jsx React.DOM */
 
 var Calendar = React.createClass({
-	getInitialState: function() {
+	getDefaultProps: function () {
+		return {
+			date: new Date().toISOString(),
+			sixRows: true
+		};
+	},
+	getInitialState: function () {
 		var state = {
-			date: moment(this.props.date)
+			date: moment(this.props.date),
+
 		};
 		state.months = this._getMonthsForYear(state.date);
 		return state;
@@ -14,19 +21,29 @@ var Calendar = React.createClass({
 		return months;
 	},
 	_renderMonth: function(month) {
-		return <CalendarMonth date={month}/>
+		return <CalendarMonth date={month} sixRows={this.props.sixRows}/>
 	},
 	render: function() {
 		return (
 			<div className="panel panel-default">
-				<CalendarHeader title={this.state.title} />
+				<CalendarHeader date={this.state.date} />
 				<div className="panel-body">
-					<div className="row">
-						{this.state.months.map(this._renderMonth)}
-					</div>
+					{this._renderRows()}
 				</div>
 			</div>
 		);
+	},
+	_renderRows: function() {
+		var rows = [],
+			currRow = [];
+		for (var i = 0; i < this.state.months.length; i++) {
+			currRow.push(this._renderMonth(this.state.months[i]));
+			if (i % 4 === 3) {
+				rows.push(currRow);
+				currRow = [];
+			}
+		}
+		return rows.map(function(row) { return <div className="row">{row}</div> })
 	}
 });
 
